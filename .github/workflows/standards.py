@@ -40,6 +40,7 @@ validated_dashboards = [
    "aws-sns/aws-sns.json",
    "aws-sqs/aws-sqs.json",
    "aws-step-functions/aws-step-functions.json",
+   "aws-storage-gateway/aws-storage-gateway.json",
 ]
 
 standard_footer = "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html\">AWS CloudWatch Transfer Family documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20008\">Installed from Grafana.com dashboards</a>"
