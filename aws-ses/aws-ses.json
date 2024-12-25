@@ -1,5 +1,6 @@
 {
   "__inputs": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -11,520 +12,533 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
+      "version": "11.3.1"
     },
     {
       "type": "panel",
       "id": "text",
       "name": "Text",
       "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
     }
   ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "description": "Visualize AWS SES metrics",
-  "editable": true,
-  "gnetId": 653,
+  "editable": false,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "hideControls": true,
   "id": null,
   "links": [],
-  "refresh": false,
-  "rows": [
+  "panels": [
     {
-      "collapse": false,
-      "height": "250px",
-      "panels": [
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Send"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {},
-          "id": 7,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
+          "alias": "",
+          "application": {
+            "filter": ""
           },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "Latency_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "TargetResponseTime_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "ClientConnections_Sum",
-              "yaxis": 2
-            },
-            {
-              "alias": "Delivery_Average",
-              "yaxis": 1
-            },
-            {
-              "alias": "Send_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {},
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Send",
-              "mode": 0,
-              "namespace": "AWS/SES",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {},
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Delivery",
-              "mode": 0,
-              "namespace": "AWS/SES",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "B",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Send / Delivery",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
+          "dimensions": {},
+          "functions": [],
+          "group": {
+            "filter": ""
           },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "label": "",
+          "metricEditorMode": 0,
+          "metricName": "Send",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/SES",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "label": "",
+          "metricEditorMode": 0,
+          "metricName": "Delivery",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/SES",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "B",
+          "region": "$region",
+          "statistic": "Average"
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Row",
-      "titleSize": "h6"
+      "title": "Send/Delivery",
+      "type": "timeseries"
     },
     {
-      "collapse": false,
-      "height": "250px",
-      "panels": [
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "$datasource"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bounce"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {},
-          "id": 8,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
+          "alias": "",
+          "application": {
+            "filter": ""
           },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "Latency_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "TargetResponseTime_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "ClientConnections_Sum",
-              "yaxis": 2
-            },
-            {
-              "alias": "Delivery_Average",
-              "yaxis": 1
-            },
-            {
-              "alias": "Send_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "Bounce_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {},
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Bounce",
-              "mode": 0,
-              "namespace": "AWS/SES",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            },
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {},
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Reject",
-              "mode": 0,
-              "namespace": "AWS/SES",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "C",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Bounce / Reject",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
+          "datasource": {
+            "uid": "$datasource"
           },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
+          "dimensions": {},
+          "functions": [],
+          "group": {
+            "filter": ""
           },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            }
-          ]
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "label": "",
+          "metricEditorMode": 0,
+          "metricName": "Bounce",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/SES",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
+        },
+        {
+          "alias": "",
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
+          },
+          "dimensions": {},
+          "functions": [],
+          "group": {
+            "filter": ""
+          },
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "label": "",
+          "metricEditorMode": 0,
+          "metricName": "Reject",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/SES",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "C",
+          "region": "$region",
+          "statistic": "Average"
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "New row",
-      "titleSize": "h6"
+      "title": "Bounce/Reject",
+      "type": "timeseries"
     },
     {
-      "collapse": false,
-      "height": "250px",
-      "panels": [
+      "datasource": {
+        "uid": "$datasource"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "${datasource}",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {},
-          "id": 9,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
+          "alias": "",
+          "application": {
+            "filter": ""
           },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-            {
-              "alias": "Latency_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "TargetResponseTime_Average",
-              "yaxis": 2
-            },
-            {
-              "alias": "ClientConnections_Sum",
-              "yaxis": 2
-            },
-            {
-              "alias": "Delivery_Average",
-              "yaxis": 1
-            },
-            {
-              "alias": "Send_Average",
-              "yaxis": 2
-            }
-          ],
-          "span": 12,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "",
-              "application": {
-                "filter": ""
-              },
-              "dimensions": {},
-              "functions": [],
-              "group": {
-                "filter": ""
-              },
-              "host": {
-                "filter": ""
-              },
-              "item": {
-                "filter": ""
-              },
-              "metricName": "Complaint",
-              "mode": 0,
-              "namespace": "AWS/SES",
-              "options": {
-                "showDisabledItems": false
-              },
-              "period": "",
-              "refId": "A",
-              "region": "$region",
-              "statistics": [
-                "Average"
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Complaint",
-          "tooltip": {
-            "msResolution": false,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "$datasource"
           },
-          "type": "graph",
-          "xaxis": {
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
+          "dimensions": {},
+          "functions": [],
+          "group": {
+            "filter": ""
           },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": false
-            }
-          ]
+          "host": {
+            "filter": ""
+          },
+          "item": {
+            "filter": ""
+          },
+          "label": "",
+          "metricEditorMode": 0,
+          "metricName": "Complaint",
+          "metricQueryType": 0,
+          "mode": 0,
+          "namespace": "AWS/SES",
+          "options": {
+            "showDisabledItems": false
+          },
+          "period": "",
+          "refId": "A",
+          "region": "$region",
+          "statistic": "Average"
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
+      "title": "Complaint",
+      "type": "timeseries"
     },
     {
-      "collapse": false,
-      "height": "25px",
-      "panels": [
-        {
-          "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ses-metricscollected.html\">AWS CloudWatch SES documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1519\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
-          "editable": true,
-          "error": false,
-          "id": 2,
-          "links": [],
-          "mode": "html",
-          "span": 12,
-          "title": "Documentation",
-          "type": "text"
-        }
-      ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 2,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/ses/latest/dg/event-publishing-retrieving-cloudwatch.html\">AWS CloudWatch SES documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/1519\">Installed from Grafana.com dashboards</a>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.3.1",
+      "title": "Documentation",
+      "type": "text"
     }
   ],
-  "schemaVersion": 14,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 40,
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -533,37 +547,29 @@
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
-        "allValue": null,
         "current": {},
-        "datasource": "${datasource}",
-        "hide": 0,
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "$datasource"
+        },
         "includeAll": false,
         "label": "Region",
-        "multi": false,
         "name": "region",
         "options": [],
         "query": "regions()",
         "refresh": 1,
         "regex": "",
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "query"
       }
     ]
   },
@@ -571,32 +577,10 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "AWS SES",
-  "version": 6
+  "uid": "ee80ifcwgvfggf",
+  "version": 7,
+  "weekStart": ""
 }
