@@ -1,6 +1,6 @@
 {
   "__inputs": [],
-  "__elements": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "datasource",
@@ -12,7 +12,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.3.5"
+      "version": "11.3.1"
     },
     {
       "type": "panel",
@@ -31,7 +31,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -49,12 +52,9 @@
   "description": "Visualize AWS Prometheus metrics",
   "editable": false,
   "fiscalYearStartMonth": 0,
-  "gnetId": 139,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1662742476777,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -67,9 +67,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -78,6 +82,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -116,7 +121,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "ActiveSeries_Average"
+              "options": "ActiveSeries"
             },
             "properties": [
               {
@@ -134,23 +139,23 @@
         "y": 0
       },
       "id": 1,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "IngestionRate_Average",
@@ -159,7 +164,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Class": "None",
@@ -181,6 +186,7 @@
           "item": {
             "filter": ""
           },
+          "label": "IngestionRate",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ResourceCount",
@@ -205,7 +211,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Class": "None",
@@ -228,6 +234,7 @@
           "item": {
             "filter": ""
           },
+          "label": "ActiveSeries",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ResourceCount",
@@ -260,9 +267,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -271,6 +282,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -309,7 +321,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "SizeOfAlerts_Average"
+              "options": "SizeOfAlerts"
             },
             "properties": [
               {
@@ -331,23 +343,23 @@
         "y": 7
       },
       "id": 3,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "ActiveAlerts_Average",
@@ -356,7 +368,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Class": "None",
@@ -378,6 +390,7 @@
           "item": {
             "filter": ""
           },
+          "label": "ActiveAlerts",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ResourceCount",
@@ -402,7 +415,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Class": "None",
@@ -425,6 +438,7 @@
           "item": {
             "filter": ""
           },
+          "label": "SizeOfAlerts",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "ResourceCount",
@@ -457,9 +471,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -468,6 +486,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -502,24 +521,7 @@
           },
           "unit": "none"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "SizeOfAlerts_Average"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -528,23 +530,23 @@
         "y": 14
       },
       "id": 4,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "",
@@ -553,7 +555,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Workspace": "$workspace"
@@ -571,6 +573,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "AlertManagerAlertsReceived",
@@ -595,7 +598,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Workspace": "$workspace"
@@ -614,6 +617,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "AlertManagerNotificationsFailed",
@@ -638,7 +642,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Workspace": "$workspace"
@@ -657,6 +661,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "AlertManagerNotificationsThrottled",
@@ -689,9 +694,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -700,6 +709,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -734,24 +744,7 @@
           },
           "unit": "none"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "SizeOfAlerts_Average"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -760,23 +753,23 @@
         "y": 21
       },
       "id": 5,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}} {{Reason}}",
@@ -785,7 +778,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "Reason": "*",
@@ -804,6 +797,7 @@
           "item": {
             "filter": ""
           },
+          "label": "",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "DiscardedSamples",
@@ -836,9 +830,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -847,6 +845,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -881,24 +880,7 @@
           },
           "unit": "none"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "SizeOfAlerts_Average"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -907,23 +889,23 @@
         "y": 28
       },
       "id": 6,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}} {{RuleGroup}}",
@@ -932,7 +914,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "RuleGroup": "$rulegroup",
@@ -951,6 +933,7 @@
           "item": {
             "filter": ""
           },
+          "label": "${PROP('MetricName')} ${PROP('Dim.RuleGroup')}",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "RuleEvaluations",
@@ -983,9 +966,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -994,6 +981,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1028,24 +1016,7 @@
           },
           "unit": "none"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "SizeOfAlerts_Average"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -1054,23 +1025,23 @@
         "y": 35
       },
       "id": 7,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}} {{RuleGroup}}",
@@ -1079,7 +1050,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "RuleGroup": "$rulegroup",
@@ -1098,6 +1069,7 @@
           "item": {
             "filter": ""
           },
+          "label": "${PROP('MetricName')} ${PROP('Dim.RuleGroup')}",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "RuleEvaluationFailures",
@@ -1130,9 +1102,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1141,6 +1117,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -1175,24 +1152,7 @@
           },
           "unit": "none"
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "SizeOfAlerts_Average"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 7,
@@ -1201,23 +1161,23 @@
         "y": 42
       },
       "id": 8,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [
             "mean",
-            "lastNotNull",
             "max",
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "alias": "{{metric}} {{RuleGroup}}",
@@ -1226,7 +1186,7 @@
           },
           "datasource": {
             "type": "cloudwatch",
-            "uid": "${datasource}"
+            "uid": "$datasource"
           },
           "dimensions": {
             "RuleGroup": "$rulegroup",
@@ -1245,6 +1205,7 @@
           "item": {
             "filter": ""
           },
+          "label": "${PROP('MetricName')} ${PROP('Dim.RuleGroup')}",
           "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "RuleGroupIterationsMissed",
@@ -1267,9 +1228,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": {},
-      "editable": true,
-      "error": false,
       "gridPos": {
         "h": 3,
         "w": 24,
@@ -1277,20 +1235,22 @@
         "y": 49
       },
       "id": 2,
-      "isNew": true,
-      "links": [],
       "options": {
-        "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-CW-usage-metrics.html\">AWS CloudWatch Prometheus documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/16899\">Installed from Grafana.com dashboards</a>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-CW-usage-metrics.html\">AWS CloudWatch Prometheus documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/16899\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "11.3.1",
       "title": "Documentation",
       "type": "text"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 34,
-  "style": "dark",
+  "refresh": "",
+  "schemaVersion": 40,
   "tags": [
     "monitoringartist",
     "cloudwatch"
@@ -1299,17 +1259,13 @@
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "cloudwatch",
-        "queryValue": "trac",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
@@ -1317,19 +1273,12 @@
         "auto_count": 100,
         "auto_min": "10s",
         "current": {
-          "selected": false,
-          "text": "auto",
-          "value": "$__auto_interval_agg"
+          "text": "$__auto",
+          "value": "$__auto"
         },
-        "hide": 0,
         "label": "Aggregation",
         "name": "agg",
         "options": [
-          {
-            "selected": true,
-            "text": "auto",
-            "value": "$__auto_interval_agg"
-          },
           {
             "selected": false,
             "text": "1m",
@@ -1383,26 +1332,22 @@
         ],
         "query": "1m,5m,30m,1h,6h,12h,1d,7d,14d,30d",
         "refresh": 2,
-        "skipUrlSync": false,
         "type": "interval"
       },
       {
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "regions()",
-        "hide": 0,
         "includeAll": false,
         "label": "Region",
-        "multi": false,
         "name": "region",
         "options": [],
         "query": "regions()",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
@@ -1410,19 +1355,16 @@
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "dimension_values($region,AWS/Usage, ResourceCount, ResourceId)",
-        "hide": 0,
         "includeAll": false,
         "label": "Workspace",
-        "multi": false,
         "name": "workspace",
         "options": [],
         "query": "dimension_values($region,AWS/Usage, ResourceCount, ResourceId)",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
@@ -1431,19 +1373,16 @@
         "current": {},
         "datasource": {
           "type": "cloudwatch",
-          "uid": "${datasource}"
+          "uid": "$datasource"
         },
         "definition": "dimension_values($region,AWS/Prometheus, RuleEvaluations, RuleGroup, {\"Workspace\": \"${workspace:raw}\"})",
-        "hide": 0,
         "includeAll": true,
         "label": "RuleGroup",
-        "multi": false,
         "name": "rulegroup",
         "options": [],
         "query": "dimension_values($region,AWS/Prometheus, RuleEvaluations, RuleGroup, {\"Workspace\": \"${workspace:raw}\"})",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       }
@@ -1453,34 +1392,10 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "AWS Prometheus",
   "uid": "AWSPromet",
-  "version": 1,
+  "version": 9,
   "weekStart": ""
 }
