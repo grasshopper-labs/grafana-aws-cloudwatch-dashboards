@@ -34,6 +34,7 @@ validated_dashboards = [
    "aws-prometheus/aws-prometheus.json",
    "aws-rds/aws-rds.json",
    "aws-redshift/aws-redshift.json",
+   "aws-route-53/aws-route-53.json",
 ]
 
 standard_footer = "<a target=\"_blank\" href=\"http://www.monitoringartist.com\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html\">AWS CloudWatch Transfer Family documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/20008\">Installed from Grafana.com dashboards</a>"

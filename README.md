@@ -189,6 +189,7 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 [![AWS Redshift](aws-redshift/aws-redshift.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-redshift)
 
 ### [AWS Route 53](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-route-53)
+[![AWS Route 53](aws-route-53/aws-route-53.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-route-53)
 
 ### [AWS S3](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-s3)
 [![AWS S3](aws-s3/aws-s3.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-s3)
