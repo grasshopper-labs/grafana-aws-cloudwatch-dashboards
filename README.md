@@ -142,6 +142,7 @@ Single click provisioning [![Gitpod ready-to-test](https://img.shields.io/badge/
 [![AWS EFS](aws-efs/aws-efs.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-efs)
 
 ### [AWS EKS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-eks)
+[![AWS EKS](aws-eks/aws-eks.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-eks)
 
 ### [AWS ElastiCache Redis](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-elasticache)
 [![AWS ElastiCache Redis](aws-elasticache/aws-elasticache-redis.png)](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards/tree/master/aws-elasticache)
