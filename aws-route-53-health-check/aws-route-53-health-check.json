@@ -1,42 +1,18 @@
 {
-  "uid": "route53-healthcheck",
-  "title": "Route 53 Health Check Monitoring",
+  "uid": "route53-healthcheck-generic",
+  "title": "Route 53 Health Check Monitoring (Community Edition)",
   "timezone": "browser",
   "schemaVersion": 38,
-  "version": 6,
+  "version": 7,
   "refresh": "30s",
   "templating": {
     "list": [
       {
-        "name": "environment",
-        "label": "Environment",
-        "type": "query",
-        "datasource": "${DS_PROMETHEUS}",
-        "query": "label_values(aws_route53_health_check_status, environment)",
-        "multi": false,
-        "includeAll": true,
-        "allValue": ".*",
-        "refresh": 2,
-        "sort": 1
-      },
-      {
-        "name": "partner_id",
-        "label": "Partner",
-        "type": "query",
-        "datasource": "${DS_PROMETHEUS}",
-        "query": "label_values(aws_route53_health_check_status{environment=~\"$environment\"}, partner_id)",
-        "multi": false,
-        "includeAll": true,
-        "allValue": ".*",
-        "refresh": 2,
-        "sort": 1
-      },
-      {
         "name": "name",
-        "label": "Tenant Domain",
+        "label": "Health Check Name",
         "type": "query",
         "datasource": "${DS_PROMETHEUS}",
-        "query": "label_values(aws_route53_health_check_status{environment=~\"$environment\",partner_id=~\"$partner_id\"}, name)",
+        "query": "label_values(aws_route53_health_check_status, name)",
         "multi": true,
         "includeAll": true,
         "allValue": ".*",
@@ -52,7 +28,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "targets": [
         {
-          "expr": "avg(aws_route53_health_check_percentage_healthy{environment=~\"$environment\", partner_id=~\"$partner_id\", name=~\"$name\"})",
+          "expr": "avg(aws_route53_health_check_percentage_healthy{name=~\"$name\"})",
           "refId": "A"
         }
       ],
@@ -80,7 +56,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "targets": [
         {
-          "expr": "count(aws_route53_health_check_status{environment=~\"$environment\", partner_id=~\"$partner_id\", name=~\"$name\"})",
+          "expr": "count(aws_route53_health_check_status{name=~\"$name\"})",
           "refId": "A"
         }
       ],
@@ -106,7 +82,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "targets": [
         {
-          "expr": "aws_route53_health_check_percentage_healthy{environment=~\"$environment\", partner_id=~\"$partner_id\", name=~\"$name\"}",
+          "expr": "aws_route53_health_check_percentage_healthy{name=~\"$name\"}",
           "legendFormat": "Global",
           "refId": "A"
         }
@@ -127,7 +103,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "targets": [
         {
-          "expr": "aws_route53_health_check_status{environment=~\"$environment\", partner_id=~\"$partner_id\", name=~\"$name\"}",
+          "expr": "aws_route53_health_check_status{name=~\"$name\"}",
           "legendFormat": "{{name}}",
           "refId": "A"
         }
@@ -148,7 +124,7 @@
       "datasource": "${DS_PROMETHEUS}",
       "targets": [
         {
-          "expr": "aws_route53_health_check_status{environment=~\"$environment\", partner_id=~\"$partner_id\", name=~\"$name\"}",
+          "expr": "aws_route53_health_check_status{name=~\"$name\"}",
           "legendFormat": "{{name}}",
           "refId": "A"
         }
@@ -164,8 +140,6 @@
           "id": "organize",
           "options": {
             "columns": [
-              { "text": "partner_id", "field": "partner_id" },
-              { "text": "environment", "field": "environment" },
               { "text": "name", "field": "name" },
               { "text": "stat", "field": "stat" },
               { "text": "Status", "field": "Value" }
